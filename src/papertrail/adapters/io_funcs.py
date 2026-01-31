@@ -24,12 +24,12 @@ def write_str(data: str, path: str, **kwargs: dict[str, Any]) -> None:
 
 @register_read_fn(FileType.JSON)
 def read_json(path: str, **kwargs: dict[str, Any]) -> dict:
-    return json.safe_load(Path(path).read_text(), **kwargs)
+    return json.loads(Path(path).read_text(), **kwargs)
 
 
 @register_write_fn(FileType.JSON)
 def write_json(data: str, path: str, **kwargs: dict[str, Any]) -> None:
-    _make_dirs(path).write_text(json.dumps(data, indent=2, sort_keys=False, **kwargs))
+    _make_dirs(path).write_text(json.dumps(data, indent=2, sort_keys=False, default=str, **kwargs))
 
 
 def _make_dirs(path: str) -> Path:

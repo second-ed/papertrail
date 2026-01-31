@@ -34,7 +34,7 @@ def mock_fn(a: int, b: int) -> int:
         )
     ],
 )
-def test_recorder(args, kwargs, expected_result):
+def test_example(args, kwargs, expected_result):
     adapter = FakeAdapter()
     recorder = Recorder(adapter=adapter)
     example = Example(mock_fn, args, kwargs, 4, recorder=recorder)
@@ -44,3 +44,20 @@ def test_recorder(args, kwargs, expected_result):
 
     example.recorder.prepare_files().write_examples()
     assert adapter.files == expected_result
+
+
+@pytest.mark.parametrize(
+    ("args", "kwargs", "value"),
+    [
+        pytest.param((2,), {"b": 2}, 4),
+        pytest.param((2, 3), {}, 5),
+    ],
+)
+def test_example_equality(args, kwargs, value):
+    adapter = FakeAdapter()
+    recorder = Recorder(adapter=adapter)
+    e1 = Example(mock_fn, args, kwargs, value, recorder=recorder)
+    e2 = Example(mock_fn, args, kwargs, value, recorder=recorder)
+
+    assert e1 == e2
+    assert hash(e1) == hash(e2)

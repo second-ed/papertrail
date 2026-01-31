@@ -36,6 +36,10 @@ dev = [
 [tool.coverage.run]
 branch = true
 source = ["src"]
+omit = [
+    "src/papertrail/core/collection/pytest_plugin.py",
+    "src/papertrail/core/logger.py"
+]
 
 [tool.coverage.report]
 show_missing = true

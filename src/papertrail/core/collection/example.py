@@ -40,10 +40,9 @@ class Example:
             [
                 self.fn.__name__,
                 self.fn.__module__,
-                str(Path(inspect.getsourcefile(self.fn))),
                 str(self.args),
                 str(self.kwargs),
-                self.value,
+                str(self.value),
             ]
         )
         return hash(hash_value)

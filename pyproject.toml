@@ -37,7 +37,7 @@ dev = [
 branch = true
 source = ["src"]
 omit = [
-    "src/papertrail/core/collection/pytest_plugin.py",
+    "src/papertrail/__main__.py",
     "src/papertrail/core/logger.py"
 ]
 

@@ -1,6 +1,6 @@
 import pytest
 
-from papertrail.core.transformation.transform_docs import (
+from papertrail.core.transformation.format_examples import (
     collect_example_strs,
     reduce_examples_to_example_str,
 )

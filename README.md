@@ -15,13 +15,13 @@
 │       │   ├── collection
 │       │   │   ├── __init__.py
 │       │   │   ├── example.py
-│       │   │   ├── pytest_plugin.py
 │       │   │   ├── record.py
 │       │   │   └── recorder.py
 │       │   ├── transformation
 │       │   │   ├── __init__.py
 │       │   │   ├── ast_editing.py
-│       │   │   └── transform_docs.py
+│       │   │   ├── format_examples.py
+│       │   │   └── transform.py
 │       │   ├── __init__.py
 │       │   └── logger.py
 │       ├── __init__.py
@@ -36,7 +36,7 @@
 │       └── transformation
 │           ├── __init__.py
 │           ├── test_ast_editing.py
-│           └── test_transform_docs.py
+│           └── test_format_examples.py
 ├── .pre-commit-config.yaml
 ├── README.md
 ├── pyproject.toml

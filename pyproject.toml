@@ -7,7 +7,9 @@ authors = [
     { name = "ed cuss", email = "edcussmusic@gmail.com" }
 ]
 requires-python = ">=3.11"
-dependencies = []
+dependencies = [
+    "pytest>=9.0.2",
+]
 
 [project.scripts]
 papertrail = "papertrail:main"
@@ -25,3 +27,6 @@ dev = [
     "repo-mapper-rs>=0.4.0",
     "ruff>=0.14.14",
 ]
+
+[project.entry-points.pytest11]
+papertrail = "papertrail.core.collection.pytest_plugin"

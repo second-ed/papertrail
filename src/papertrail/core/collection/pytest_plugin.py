@@ -10,10 +10,10 @@ from _pytest.main import Session
 from papertrail.core.collection.recorder import _RECORDER
 
 
-@pytest.hookimpl(hookwrapper=True)
+@pytest.hookimpl(hookwrapper=True, trylast=True)
 def pytest_sessionfinish(
     session: Session,  # noqa: ARG001
     exitstatus: int | ExitCode,  # noqa: ARG001
 ) -> Generator[Any, None, None]:
     yield
-    _RECORDER.write_examples()
+    _RECORDER.prepare_files().write_examples()

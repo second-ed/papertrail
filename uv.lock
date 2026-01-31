@@ -21,6 +21,15 @@ wheels = [
 ]
 
 [[package]]
+name = "attrs"
+version = "25.4.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/6b/5c/685e6633917e101e5dcb62b9dd76946cbb57c26e133bae9e0cd36033c0a9/attrs-25.4.0.tar.gz", hash = "sha256:16d5969b87f0859ef33a48b35d55ac1be6e42ae49d5e853b597db70c35c57e11", size = 934251, upload-time = "2025-10-06T13:54:44.725Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/3a/2a/7cc015f5b9f5db42b7d48157e23356022889fc354a2813c15934b7cb5c0e/attrs-25.4.0-py3-none-any.whl", hash = "sha256:adcf7e2a1fb3b36ac48d97835bb6d8ade15b8dcce26aba8bf1d14847b57a3373", size = 67615, upload-time = "2025-10-06T13:54:43.17Z" },
+]
+
+[[package]]
 name = "cffi"
 version = "2.0.0"
 source = { registry = "https://pypi.org/simple" }
@@ -289,6 +298,18 @@ wheels = [
 ]
 
 [[package]]
+name = "io-adapters"
+version = "0.2.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "attrs" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/dd/b7/1194ee6a8985a6b0b484a4865be5b6dbcfc5932745269b0981c940690b4b/io_adapters-0.2.1.tar.gz", hash = "sha256:8c7df474211a69093061d9ee0616c94baeb4ed39c54a5ec7d5141f840bec5774", size = 7364, upload-time = "2026-01-07T20:46:41.062Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/97/1c/6549dab373aec5b1774572cff06293a25d5681601c83f372c72ef071c01d/io_adapters-0.2.1-py3-none-any.whl", hash = "sha256:2825adb9ee8e6f74a80633197799aae4d6ffcf91402b80ffc177395e44d001ce", size = 10391, upload-time = "2026-01-07T20:46:39.27Z" },
+]
+
+[[package]]
 name = "ipykernel"
 version = "7.1.0"
 source = { registry = "https://pypi.org/simple" }
@@ -431,6 +452,7 @@ name = "papertrail"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
+    { name = "io-adapters" },
     { name = "pytest" },
 ]
 
@@ -445,7 +467,10 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "pytest", specifier = ">=9.0.2" }]
+requires-dist = [
+    { name = "io-adapters", specifier = ">=0.2.1" },
+    { name = "pytest", specifier = ">=9.0.2" },
+]
 
 [package.metadata.requires-dev]
 dev = [

@@ -8,6 +8,9 @@
 │       └── ci_tests.yaml
 ├── src
 │   └── papertrail
+│       ├── adapters
+│       │   ├── __init__.py
+│       │   └── io_funcs.py
 │       ├── core
 │       │   ├── collection
 │       │   │   ├── __init__.py

@@ -8,6 +8,7 @@ authors = [
 ]
 requires-python = ">=3.11"
 dependencies = [
+    "io-adapters>=0.2.1",
     "pytest>=9.0.2",
 ]
 

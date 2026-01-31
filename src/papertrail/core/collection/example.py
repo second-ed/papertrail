@@ -21,13 +21,11 @@ class Example:
     recorder: Recorder
 
     def __eq__(self, expected: T) -> bool:
-        frame = inspect.currentframe().f_back
-
         record = ExampleRecord(
             fn_name=self.fn.__name__,
             module=self.fn.__module__,
             src_file=str(Path(inspect.getsourcefile(self.fn))),
-            src_line=frame.f_lineno,
+            src_line=inspect.currentframe().f_back.f_lineno,
             args=self.args,
             kwargs=self.kwargs,
             returned=self.value,

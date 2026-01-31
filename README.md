@@ -9,12 +9,16 @@
 ├── src
 │   └── papertrail
 │       ├── core
+│       │   ├── collection
+│       │   │   ├── __init__.py
+│       │   │   ├── example.py
+│       │   │   ├── record.py
+│       │   │   └── recorder.py
 │       │   ├── __init__.py
 │       │   └── logger.py
 │       ├── __init__.py
 │       └── __main__.py
 ├── tests
-│   ├── __init__.py
 │   └── test_main.py
 ├── .pre-commit-config.yaml
 ├── README.md

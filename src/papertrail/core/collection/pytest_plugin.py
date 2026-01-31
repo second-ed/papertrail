@@ -16,4 +16,5 @@ def pytest_sessionfinish(
     exitstatus: int | ExitCode,  # noqa: ARG001
 ) -> Generator[Any, None, None]:
     yield
+
     _RECORDER.prepare_files().write_examples()

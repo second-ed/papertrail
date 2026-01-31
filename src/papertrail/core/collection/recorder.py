@@ -1,23 +1,23 @@
 from __future__ import annotations
 
-from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Self
 
+import attrs
 from io_adapters import IoAdapter, RealAdapter
 
 from papertrail.adapters.io_funcs import FileType
 from papertrail.core.collection.record import ExampleRecord
 
 
-@dataclass(slots=True)
+@attrs.define
 class Recorder:
     path: str | Path = "./.papertrail_cache/examples.json"
-    records: list[ExampleRecord] = field(default_factory=list)
-    adapter: IoAdapter = field(default_factory=RealAdapter)
-    files: dict = field(default_factory=dict)
+    records: list[ExampleRecord] = attrs.field(factory=list)
+    adapter: IoAdapter = attrs.field(factory=RealAdapter)
+    files: dict = attrs.field(factory=dict)
 
-    def __post_init__(self) -> None:
+    def __attrs_post_init__(self) -> None:
         self.path = Path(self.path)
 
     def record_example(self, example: ExampleRecord) -> Self:
@@ -26,7 +26,7 @@ class Recorder:
 
     def prepare_files(self) -> Self:
         self.files[(self.path, FileType.JSON)] = [r.to_dict() for r in self.records]
-        self.files[(self.path.parent.joinpath(".gitignore"), FileType.STR)] = (
+        self.files[(self.path.parent / ".gitignore", FileType.STR)] = (
             "# automatically created by papertrail\n*"
         )
         return self

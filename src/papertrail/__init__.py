@@ -1,3 +1,3 @@
-from papertrail.core.collection.example import example
+from papertrail.core import example
 
 __all__ = ["example"]

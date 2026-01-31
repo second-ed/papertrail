@@ -2,9 +2,10 @@ from __future__ import annotations
 
 import inspect
 from collections.abc import Callable
-from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, TypeVar
+
+import attrs
 
 from papertrail.core.collection.record import ExampleRecord
 from papertrail.core.collection.recorder import _RECORDER, Recorder
@@ -12,7 +13,7 @@ from papertrail.core.collection.recorder import _RECORDER, Recorder
 T = TypeVar("T")
 
 
-@dataclass(slots=True)
+@attrs.define
 class Example:
     fn: Callable
     args: tuple[Any, ...]
@@ -25,7 +26,6 @@ class Example:
             fn_name=self.fn.__name__,
             module=self.fn.__module__,
             src_file=str(Path(inspect.getsourcefile(self.fn))),
-            src_line=inspect.currentframe().f_back.f_lineno,
             args=self.args,
             kwargs=self.kwargs,
             returned=self.value,
@@ -34,6 +34,19 @@ class Example:
 
         self.recorder.record_example(record)
         return self.value == expected
+
+    def __hash__(self) -> int:
+        hash_value = "".join(
+            [
+                self.fn.__name__,
+                self.fn.__module__,
+                str(Path(inspect.getsourcefile(self.fn))),
+                str(self.args),
+                str(self.kwargs),
+                self.value,
+            ]
+        )
+        return hash(hash_value)
 
 
 def example(fn: Callable, *args: tuple[Any, ...], **kwargs: dict[str, Any]) -> Example:

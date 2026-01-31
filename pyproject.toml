@@ -8,12 +8,12 @@ authors = [
 ]
 requires-python = ">=3.11"
 dependencies = [
+    "attrs>=25.4.0",
+    "black>=26.1.0",
+    "dotenv>=0.9.9",
     "io-adapters>=0.2.1",
     "pytest>=9.0.2",
 ]
-
-[project.scripts]
-papertrail = "papertrail:main"
 
 [build-system]
 requires = ["uv_build>=0.8.13,<0.9.0"]
@@ -21,6 +21,7 @@ build-backend = "uv_build"
 
 [dependency-groups]
 dev = [
+    "hypothesis>=6.151.4",
     "ipykernel>=7.1.0",
     "pre-commit>=4.5.1",
     "pytest>=9.0.2",
@@ -29,5 +30,14 @@ dev = [
     "ruff>=0.14.14",
 ]
 
-[project.entry-points.pytest11]
-papertrail = "papertrail.core.collection.pytest_plugin"
+# [project.entry-points.pytest11]
+# papertrail = "papertrail.core.collection.pytest_plugin"
+
+[tool.coverage.run]
+branch = true
+source = ["src"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+fail_under = 95

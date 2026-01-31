@@ -23,7 +23,12 @@
 │       ├── __init__.py
 │       └── __main__.py
 ├── tests
-│   └── test_main.py
+│   └── core
+│       └── collection
+│           ├── __init__.py
+│           ├── test_example.py
+│           ├── test_record.py
+│           └── test_recorder.py
 ├── .pre-commit-config.yaml
 ├── README.md
 ├── pyproject.toml

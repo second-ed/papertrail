@@ -1,7 +1,7 @@
 import pytest
+from mock_src.mod_a import func_a
 
 from papertrail import example
-from src.mod_a import func_a
 
 
 @pytest.mark.parametrize(

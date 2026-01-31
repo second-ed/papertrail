@@ -12,6 +12,7 @@
 │       │   ├── collection
 │       │   │   ├── __init__.py
 │       │   │   ├── example.py
+│       │   │   ├── pytest_hook_finish.py
 │       │   │   ├── record.py
 │       │   │   └── recorder.py
 │       │   ├── __init__.py

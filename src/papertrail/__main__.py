@@ -7,8 +7,7 @@ import pytest
 from _pytest.config import ExitCode
 from _pytest.main import Session
 
-from papertrail.adapters.io_funcs import FileType
-from papertrail.core.collection.recorder import _RECORDER
+from papertrail.core.collection.recorder import _RECORDER, Recorder
 from papertrail.core.transformation.transform import update_modified_docstrings
 
 
@@ -18,8 +17,9 @@ def pytest_sessionfinish(
     exitstatus: int | ExitCode,  # noqa: ARG001
 ) -> Generator[Any, None, None]:
     yield
+    main(_RECORDER)
 
-    _RECORDER.prepare_files().write_examples()
-    update_modified_docstrings(
-        _RECORDER.adapter, _RECORDER.adapter.read(_RECORDER.path, FileType.JSON)
-    )
+
+def main(recorder: Recorder) -> None:
+    recorder.prepare_files().write_examples()
+    update_modified_docstrings(recorder.adapter, recorder.path)

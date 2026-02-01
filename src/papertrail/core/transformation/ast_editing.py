@@ -36,7 +36,7 @@ class DocString:
                 for line in example.splitlines(keepends=True)
             ]
         )
-        pattern = r"(Papertrail examples:\n.*?\n\s*::)"
+        pattern = r"(?ms)^[ \t]*Papertrail examples:\n.*?\n[ \t]*::"
         replaced_doc, n = re.subn(pattern, example, self.doc)
 
         new_doc = replaced_doc if n else f"{self.doc}\n\n{example}"

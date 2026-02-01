@@ -1,7 +1,5 @@
 import ast
 
-import black
-
 
 def update_function_docstrings(
     code: str,
@@ -13,7 +11,7 @@ def update_function_docstrings(
     replacements: list[tuple[int, int, str]] = []
 
     for node in ast.walk(tree):
-        if is_fn_with_body(node) or not (example := examples.get(node.name)):
+        if is_fn_with_body(node) or not (example := examples.get(node.name, "")):
             continue
 
         first = node.body[0]
@@ -21,17 +19,22 @@ def update_function_docstrings(
         indent = " " * (first.col_offset)
 
         if is_docstring(first):
-            new_doc = f"{first.value.value.rstrip()}\n\n{example}\n"
-            quoted = f'{indent}"""{new_doc}{indent}"""\n'
-            replacements.append((start, first.end_lineno, quoted))
+            new_doc = f"{first.value.value.rstrip()}\n\n{example}"
+            end_line = first.end_lineno
         else:
-            new_docstring = f'{indent}"""{example}\n{indent}"""\n'
-            replacements.append((start, start, new_docstring))
+            new_doc = example
+            end_line = start
+
+        new_docstring = f'"""{new_doc}\n"""\n\n'
+        new_docstring = "\n".join(
+            [f"{indent}{line}" if line.strip() else line for line in new_docstring.splitlines()]
+        )
+        replacements.append((start, end_line, new_docstring))
 
     for start, end, text in reversed(replacements):
         lines[start:end] = [text]
 
-    return black.format_str("".join(lines), mode=black.FileMode()).strip()
+    return "".join(lines)
 
 
 def is_fn_with_body(node: ast.AST) -> bool:

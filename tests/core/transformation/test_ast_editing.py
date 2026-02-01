@@ -72,7 +72,12 @@ EXPECTED_RESULT = "\n".join(  # noqa: FLY002
 
 
 @pytest.mark.parametrize(
-    ("code", "examples", "expected_result"), [pytest.param(CODE, EXAMPLES, EXPECTED_RESULT)]
+    ("code", "examples", "expected_result"),
+    [
+        pytest.param(
+            CODE, EXAMPLES, EXPECTED_RESULT, id="Ensure adds docstrings to simple functions"
+        )
+    ],
 )
 def test_update_function_docstrings(code, examples, expected_result):
     assert update_function_docstrings(code, examples) == expected_result

@@ -30,11 +30,13 @@
 │   ├── _mock_data
 │   │   ├── mock_src
 │   │   │   ├── __init__.py
-│   │   │   └── mod_a.py
+│   │   │   ├── mod_a.py
+│   │   │   └── mod_b.py
 │   │   └── tests
 │   │       ├── __init__.py
 │   │       ├── conftest.py
-│   │       └── test_mod_a.py
+│   │       ├── test_mod_a.py
+│   │       └── test_mod_b.py
 │   ├── core
 │   │   ├── collection
 │   │   │   ├── __init__.py

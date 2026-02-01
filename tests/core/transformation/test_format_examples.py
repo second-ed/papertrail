@@ -69,6 +69,7 @@ MOCK_EXAMPLES = [
                     "func_b": ["    >>> func_b(3, b=3) == 6\n    True"],
                 }
             },
+            id="Ensure parses examples into examples for each function",
         )
     ],
 )
@@ -96,6 +97,7 @@ def test_collect_example_strs(examples, expected_result):
                     "func_b": "Papertrail examples:\n\n    >>> func_b(3, b=3) == 6\n    True\n::",
                 }
             },
+            id="Ensure collates examples into single str",
         )
     ],
 )

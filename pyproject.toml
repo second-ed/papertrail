@@ -31,7 +31,7 @@ dev = [
 ]
 
 # [project.entry-points.pytest11]
-# papertrail = "papertrail.core.collection.pytest_plugin"
+# papertrail = "papertrail.__main__"
 
 [tool.coverage.run]
 branch = true

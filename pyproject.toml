@@ -28,6 +28,7 @@ dev = [
     "pytest-cov>=7.0.0",
     "repo-mapper-rs>=0.4.0",
     "ruff>=0.14.14",
+    "sphinx>=9.0.4",
 ]
 
 # [project.entry-points.pytest11]

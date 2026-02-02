@@ -49,5 +49,68 @@ class Example:
 
 
 def example(fn: Callable, *args: tuple[Any, ...], **kwargs: dict[str, Any]) -> Example:
+    """Capture an example from a test to add to the docstring.
+
+    Wrap the example around the function before the equality operation and the function result will be captured and added to the docstring of the function.
+    This only happens if the tests pass!
+
+    .. code-block:: python
+
+        from papertrail import example
+
+        def test_add():
+            assert example(add, 2, 3) == 5
+
+
+    This has captured the example and now once the tests are finished the docstring of the function will be updated like this:
+
+    .. code-block:: python
+
+        def add(a: int, b: int) -> int:
+            \"\"\"Papertrail examples:
+
+                >>> add(2, 3) == 5
+                True
+            ::
+            \"\"\"
+            return a + b
+
+
+    You can use it with parametrized tests too:
+
+    .. code-block:: python
+
+        @pytest.mark.parametrize(
+            ("args", "kwargs", "expected_result"),
+            [
+                pytest.param((2, 2), {}, 0),
+                pytest.param((2,), {"b": 3}, -1),
+            ],
+        )
+        def test_func_b(args, kwargs, expected_result):
+            assert example(func_b, *args, **kwargs) == expected_result
+
+    This captures all the cases and adds them to the functions docstring:
+
+    .. code-block:: python
+
+        def func_b(a: float, b: float) -> float:
+            \"\"\"Simple docstring
+
+            Args:
+                a (float)
+                b (float)
+
+            Returns:
+                float
+
+            Papertrail examples:
+
+                >>> func_b(3, 4) == -1
+                True
+            ::
+            \"\"\"
+            return a - b
+    """
     value = fn(*args, **kwargs)
     return Example(fn, args, kwargs, value, recorder=_RECORDER)

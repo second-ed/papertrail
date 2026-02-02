@@ -6,6 +6,9 @@
 ├── .github
 │   └── workflows
 │       └── ci_tests.yaml
+├── docs
+│   └── source
+│       └── conf.py
 ├── src
 │   └── papertrail
 │       ├── adapters

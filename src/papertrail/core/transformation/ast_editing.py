@@ -5,10 +5,7 @@ from typing import Self
 import attrs
 
 
-def update_function_docstrings(
-    code: str,
-    examples: dict[str, str],
-) -> str:
+def update_function_docstrings(code: str, examples: dict[str, str]) -> str:
     replacements = create_replacements(code, examples)
     return replace_docstrings(code, replacements)
 

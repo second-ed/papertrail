@@ -1,3 +1,8 @@
+"""repo-map-desc: Updates the the docstrings for all the funcs in the files in the example cache.
+
+This is the main entry point for the transformation module.
+"""
+
 from io_adapters import IoAdapter
 
 from papertrail.adapters.io_funcs import FileType

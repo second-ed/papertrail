@@ -1,3 +1,8 @@
+"""repo-map-desc: the pytest hook for sessionfinish
+
+Calls an inner main function for testability
+"""
+
 from __future__ import annotations
 
 from collections.abc import Generator

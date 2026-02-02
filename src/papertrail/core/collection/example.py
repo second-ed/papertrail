@@ -1,3 +1,8 @@
+"""repo-map-desc: User entrypoint `example` and it's inner class `Example`
+
+The equality operator is where the magic happens
+"""
+
 from __future__ import annotations
 
 import inspect

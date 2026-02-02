@@ -13,22 +13,22 @@
 │   └── papertrail
 │       ├── adapters
 │       │   ├── __init__.py
-│       │   └── io_funcs.py
+│       │   └── io_funcs.py              # The IO functions for the IO adapters
 │       ├── core
 │       │   ├── collection
 │       │   │   ├── __init__.py
-│       │   │   ├── example.py
+│       │   │   ├── example.py           # User entrypoint `example` and it's inner class `Example`
 │       │   │   ├── record.py
 │       │   │   └── recorder.py
 │       │   ├── transformation
 │       │   │   ├── __init__.py
 │       │   │   ├── ast_editing.py
 │       │   │   ├── format_examples.py
-│       │   │   └── transform.py
+│       │   │   └── transform.py         # Updates the the docstrings for all the funcs in the files in the example cache.
 │       │   ├── __init__.py
 │       │   └── logger.py
 │       ├── __init__.py
-│       └── __main__.py
+│       └── __main__.py                  # the pytest hook for sessionfinish
 ├── tests
 │   ├── _mock_data
 │   │   ├── mock_src

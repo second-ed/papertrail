@@ -1,3 +1,8 @@
+"""repo-map-desc: The IO functions for the IO adapters
+
+Currently only uses simple registries
+"""
+
 import json
 from enum import Enum, unique
 from pathlib import Path

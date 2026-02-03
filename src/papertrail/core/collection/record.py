@@ -1,19 +1,19 @@
 from __future__ import annotations
 
-from dataclasses import asdict, dataclass
 from typing import Any
 
+import attrs
 
-@dataclass(frozen=True, slots=True, eq=True)
+
+@attrs.define(frozen=True, eq=True)
 class ExampleRecord:
     fn_name: str
     module: str
     src_file: str
-    src_line: int
     args: tuple[Any, ...]
     kwargs: dict[str, Any]
     returned: Any
     expected: Any
 
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
+    def to_dict(self) -> dict[str, str]:
+        return attrs.asdict(self)

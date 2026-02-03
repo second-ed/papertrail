@@ -493,14 +493,14 @@ wheels = [
 
 [[package]]
 name = "io-adapters"
-version = "0.2.1"
+version = "0.2.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "attrs" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/dd/b7/1194ee6a8985a6b0b484a4865be5b6dbcfc5932745269b0981c940690b4b/io_adapters-0.2.1.tar.gz", hash = "sha256:8c7df474211a69093061d9ee0616c94baeb4ed39c54a5ec7d5141f840bec5774", size = 7364, upload-time = "2026-01-07T20:46:41.062Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/1c/ac/43351192a306050a3c4cf7f96e5b95cfa16eac444b5cd6c1ec6d892fc5eb/io_adapters-0.2.2.tar.gz", hash = "sha256:e9507037cb1c3e96e5b56fa055c3c36bbfb4ccc226ca848236d17441c0f36c7e", size = 7379, upload-time = "2026-02-03T13:12:12.401Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/97/1c/6549dab373aec5b1774572cff06293a25d5681601c83f372c72ef071c01d/io_adapters-0.2.1-py3-none-any.whl", hash = "sha256:2825adb9ee8e6f74a80633197799aae4d6ffcf91402b80ffc177395e44d001ce", size = 10391, upload-time = "2026-01-07T20:46:39.27Z" },
+    { url = "https://files.pythonhosted.org/packages/0b/57/f07b8136df25c1d17e1b47333fbd45a0c14c6a263ce7b2d459e5cae0014e/io_adapters-0.2.2-py3-none-any.whl", hash = "sha256:f620ccc4a6e4cfd4f0b27884f75c02f4ea6cedacb2e056c1ed8856dcdcc3c756", size = 10421, upload-time = "2026-02-03T13:12:11.349Z" },
 ]
 
 [[package]]
@@ -765,7 +765,7 @@ dev = [
 requires-dist = [
     { name = "attrs", specifier = ">=25.4.0" },
     { name = "black", specifier = ">=26.1.0" },
-    { name = "io-adapters", specifier = ">=0.2.1" },
+    { name = "io-adapters", specifier = "==0.2.2" },
     { name = "pytest", specifier = ">=9.0.2" },
     { name = "python-dotenv", specifier = ">=1.2.1" },
 ]

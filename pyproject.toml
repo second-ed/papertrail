@@ -46,3 +46,9 @@ omit = [
 show_missing = true
 skip_covered = true
 fail_under = 95
+
+[tool.pytest.ini_options]
+norecursedirs = [
+    "docs/docs-build",
+    "docs/_build",
+]

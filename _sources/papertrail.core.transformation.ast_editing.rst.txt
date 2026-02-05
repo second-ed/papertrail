@@ -1,0 +1,7 @@
+papertrail.core.transformation.ast\_editing module
+==================================================
+
+.. automodule:: papertrail.core.transformation.ast_editing
+   :members:
+   :show-inheritance:
+   :undoc-members:

@@ -1,0 +1,7 @@
+papertrail.core.transformation.format\_examples module
+======================================================
+
+.. automodule:: papertrail.core.transformation.format_examples
+   :members:
+   :show-inheritance:
+   :undoc-members:

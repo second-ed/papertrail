@@ -1,0 +1,20 @@
+papertrail.core.collection package
+==================================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   papertrail.core.collection.example
+   papertrail.core.collection.record
+   papertrail.core.collection.recorder
+
+Module contents
+---------------
+
+.. automodule:: papertrail.core.collection
+   :members:
+   :show-inheritance:
+   :undoc-members:

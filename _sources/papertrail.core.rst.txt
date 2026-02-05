@@ -1,0 +1,27 @@
+papertrail.core package
+=======================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   papertrail.core.collection
+   papertrail.core.transformation
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   papertrail.core.logger
+
+Module contents
+---------------
+
+.. automodule:: papertrail.core
+   :members:
+   :show-inheritance:
+   :undoc-members:

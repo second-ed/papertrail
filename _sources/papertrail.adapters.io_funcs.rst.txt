@@ -1,0 +1,7 @@
+papertrail.adapters.io\_funcs module
+====================================
+
+.. automodule:: papertrail.adapters.io_funcs
+   :members:
+   :show-inheritance:
+   :undoc-members:

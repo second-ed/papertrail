@@ -1,0 +1,20 @@
+papertrail.core.transformation package
+======================================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   papertrail.core.transformation.ast_editing
+   papertrail.core.transformation.format_examples
+   papertrail.core.transformation.transform
+
+Module contents
+---------------
+
+.. automodule:: papertrail.core.transformation
+   :members:
+   :show-inheritance:
+   :undoc-members:

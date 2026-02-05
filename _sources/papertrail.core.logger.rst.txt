@@ -1,0 +1,7 @@
+papertrail.core.logger module
+=============================
+
+.. automodule:: papertrail.core.logger
+   :members:
+   :show-inheritance:
+   :undoc-members:

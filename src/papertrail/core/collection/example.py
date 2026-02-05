@@ -111,11 +111,77 @@ def example(fn: Callable, *args: tuple[Any, ...], **kwargs: dict[str, Any]) -> E
 
             Papertrail examples:
 
-                >>> func_b(3, 4) == -1
+                >>> func_b(2, 2) == 0
+                True
+
+                >>> func_b(2, b=3) == -1
                 True
             ::
             \"\"\"
             return a - b
+
+    For more exciting inputs and arguments the docstrings code will be formatted with black:
+
+    .. code-block:: python
+
+        def enum_keys(enum_dict: dict[int, str]) -> list[str]:
+            \"\"\"Multiply the values by the key amount.\"\"\"
+            return [i * a for i, a in enum_dict.items()]
+
+
+    Imagine this test:
+
+    .. code-block:: python
+
+        import string
+
+        import pytest
+        from mock_src.mod_b import enum_keys
+
+        from papertrail import example
+
+
+        @pytest.mark.parametrize(
+            ("args", "kwargs", "expected_result"),
+            [
+                pytest.param(
+                    (dict(enumerate(string.ascii_lowercase[:5])),),
+                    {},
+                    [
+                        "",
+                        "b",
+                        "cc",
+                        "ddd",
+                        "eeee",
+                    ],
+                ),
+            ],
+        )
+        def test_enum_keys(args, kwargs, expected_result):
+            assert example(enum_keys, *args, **kwargs) == expected_result
+
+
+    This is the result (Hopefully it clearly suggests what the function should do):
+
+    .. code-block:: python
+
+        def enum_keys(enum_dict: dict[int, str]) -> list[str]:
+            \"\"\"Multiply the values by the key amount.
+
+            Papertrail examples:
+
+                >>> enum_keys({0: "a", 1: "b", 2: "c", 3: "d", 4: "e"}) == [
+                ...     "",
+                ...     "b",
+                ...     "cc",
+                ...     "ddd",
+                ...     "eeee",
+                ... ]
+                True
+            ::.
+            \"\"\"
+            return [i * a for i, a in enum_dict.items()]
+
     """
     value = fn(*args, **kwargs)
     return Example(fn, args, kwargs, value, recorder=_RECORDER)

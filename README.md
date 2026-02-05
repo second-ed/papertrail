@@ -72,7 +72,10 @@ def func_b(a: float, b: float) -> float:
 
     Papertrail examples:
 
-        >>> func_b(3, 4) == -1
+        >>> func_b(2, 2) == 0
+        True
+
+        >>> func_b(2, b=3) == -1
         True
     ::
     """

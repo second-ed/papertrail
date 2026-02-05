@@ -1,4 +1,9 @@
 # papertrail
+[![PyPI Downloads](https://static.pepy.tech/personalized-badge/papertrail?period=total&units=INTERNATIONAL_SYSTEM&left_color=BLACK&right_color=BLUE&left_text=downloads)](https://pepy.tech/projects/danom)
+
+# API Reference
+
+[papertrail API docs](https://second-ed.github.io/papertrail/)
 
 ### Motivation
 - Documentation can get out of date quickly

@@ -13,3 +13,7 @@ def func_b(a: float, b: float) -> float:
         float
     """
     return a - b
+
+
+def double_str(x: str) -> str:
+    return x * 2

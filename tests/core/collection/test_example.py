@@ -19,14 +19,14 @@ def mock_fn(a: int, b: int) -> int:
                 ".papertrail_cache/.gitignore": "# automatically created by papertrail\n*",
                 ".papertrail_cache/examples.json": [
                     {
-                        "args": (2,),
-                        "expected": 4,
+                        "args": ["2"],
+                        "expected": "4",
                         "fn_name": "mock_fn",
                         "kwargs": {
-                            "b": 2,
+                            "b": "2",
                         },
                         "module": "collection.test_example",
-                        "returned": 4,
+                        "returned": "4",
                         "src_file": f"{REPO_ROOT}/tests/core/collection/test_example.py",
                     },
                 ],

@@ -31,10 +31,10 @@ class Example:
             fn_name=self.fn.__name__,
             module=self.fn.__module__,
             src_file=str(Path(inspect.getsourcefile(self.fn))),
-            args=self.args,
-            kwargs=self.kwargs,
-            returned=self.value,
-            expected=expected,
+            args=[repr(arg) for arg in self.args],
+            kwargs={k: repr(v) for k, v in self.kwargs.items()},
+            returned=repr(self.value),
+            expected=repr(expected),
         )
 
         self.recorder.record_example(record)

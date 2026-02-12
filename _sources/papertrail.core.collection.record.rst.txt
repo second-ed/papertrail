@@ -1,0 +1,7 @@
+papertrail.core.collection.record module
+========================================
+
+.. automodule:: papertrail.core.collection.record
+   :members:
+   :show-inheritance:
+   :undoc-members:

@@ -1,0 +1,7 @@
+papertrail
+==========
+
+.. toctree::
+   :maxdepth: 4
+
+   papertrail

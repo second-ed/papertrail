@@ -1,0 +1,7 @@
+papertrail.core.collection.example module
+=========================================
+
+.. automodule:: papertrail.core.collection.example
+   :members:
+   :show-inheritance:
+   :undoc-members:

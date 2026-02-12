@@ -1,0 +1,18 @@
+papertrail.adapters package
+===========================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   papertrail.adapters.io_funcs
+
+Module contents
+---------------
+
+.. automodule:: papertrail.adapters
+   :members:
+   :show-inheritance:
+   :undoc-members:

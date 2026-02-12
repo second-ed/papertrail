@@ -1,0 +1,7 @@
+papertrail.core.transformation.transform module
+===============================================
+
+.. automodule:: papertrail.core.transformation.transform
+   :members:
+   :show-inheritance:
+   :undoc-members:

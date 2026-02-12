@@ -1,7 +1,7 @@
 """Faked E2E test."""  # noqa: INP001
 
 import pytest
-from _mock_data.mock_src.mod_a import func_a, func_b
+from _mock_data.mock_src.mod_a import double_str, func_a, func_b
 from io_adapters import FakeAdapter
 
 from papertrail.__main__ import main
@@ -27,6 +27,8 @@ STARTING_FILES_1 = {
             "        float",
             '    """',
             "    return a - b",
+            "def double_str(x: str) -> str:",
+            "    return x * 2",
         ]
     )
 }
@@ -37,54 +39,66 @@ CONFIG_1 = (
     (func_a, (), {"a": 3, "b": 3}, 6),
     (func_b, (2, 2), {}, 0),
     (func_b, (2,), {"b": 3}, -1),
+    (double_str, ("blah",), {}, "blahblah"),
 )
 
 
 EXPECTED_RESULT_1 = {
     ".papertrail_cache/examples.json": [
         {
-            "args": (2, 2),
-            "expected": 4,
+            "args": ["2", "2"],
+            "expected": "4",
             "fn_name": "func_a",
             "kwargs": {},
             "module": "_mock_data.mock_src.mod_a",
-            "returned": 4,
+            "returned": "4",
             "src_file": f"{REPO_ROOT}/tests/_mock_data/mock_src/mod_a.py",
         },
         {
-            "args": (2,),
-            "expected": 5,
+            "args": ["2"],
+            "expected": "5",
             "fn_name": "func_a",
-            "kwargs": {"b": 3},
+            "kwargs": {"b": "3"},
             "module": "_mock_data.mock_src.mod_a",
-            "returned": 5,
+            "returned": "5",
             "src_file": f"{REPO_ROOT}/tests/_mock_data/mock_src/mod_a.py",
         },
         {
-            "args": (),
-            "expected": 6,
+            "args": [],
+            "expected": "6",
             "fn_name": "func_a",
-            "kwargs": {"a": 3, "b": 3},
+            "kwargs": {"a": "3", "b": "3"},
             "module": "_mock_data.mock_src.mod_a",
-            "returned": 6,
+            "returned": "6",
             "src_file": f"{REPO_ROOT}/tests/_mock_data/mock_src/mod_a.py",
         },
         {
-            "args": (2, 2),
-            "expected": 0,
+            "args": ["2", "2"],
+            "expected": "0",
             "fn_name": "func_b",
             "kwargs": {},
             "module": "_mock_data.mock_src.mod_a",
-            "returned": 0,
+            "returned": "0",
             "src_file": f"{REPO_ROOT}/tests/_mock_data/mock_src/mod_a.py",
         },
         {
-            "args": (2,),
-            "expected": -1,
+            "args": ["2"],
+            "expected": "-1",
             "fn_name": "func_b",
-            "kwargs": {"b": 3},
+            "kwargs": {"b": "3"},
             "module": "_mock_data.mock_src.mod_a",
-            "returned": -1,
+            "returned": "-1",
+            "src_file": f"{REPO_ROOT}/tests/_mock_data/mock_src/mod_a.py",
+        },
+        {
+            "args": [
+                "'blah'",
+            ],
+            "expected": "'blahblah'",
+            "fn_name": "double_str",
+            "kwargs": {},
+            "module": "_mock_data.mock_src.mod_a",
+            "returned": "'blahblah'",
             "src_file": f"{REPO_ROOT}/tests/_mock_data/mock_src/mod_a.py",
         },
     ],
@@ -126,6 +140,14 @@ EXPECTED_RESULT_1 = {
             "    ::",
             '    """',
             "    return a - b",
+            "def double_str(x: str) -> str:",
+            '    """Papertrail examples:',
+            "",
+            '        >>> double_str("blah") == "blahblah"',
+            "        True",
+            "    ::",
+            '    """',
+            "    return x * 2",
         ]
     ),
 }

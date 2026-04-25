@@ -31,8 +31,8 @@ dev = [
     "sphinx>=9.0.4",
 ]
 
-# [project.entry-points.pytest11]
-# papertrail = "papertrail.__main__"
+[project.entry-points.pytest11]
+papertrail = "papertrail.__main__"
 
 [tool.coverage.run]
 branch = true
